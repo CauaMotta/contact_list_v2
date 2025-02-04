@@ -5,6 +5,9 @@ export default {
   secondaryColor: '#31363F',
   focus: '#76ABAE',
 
+  favColor: '#FBEEAC',
+  favHover: '#F4D160',
+
   // Font
   fontFamily: 'Poppins, sans-serif'
 }
