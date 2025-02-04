@@ -48,7 +48,13 @@ export const Header = styled.div`
   }
 `
 
-export const EditButton = styled.button`
+export const ActionBar = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`
+
+export const ActionButton = styled.button`
   display: none;
   color: ${variables.fontColor};
   font-size: 1rem;

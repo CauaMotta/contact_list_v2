@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Container, Header, EditButton, MainContent, TextArea } from './styles'
+import {
+  Container,
+  Header,
+  ActionBar,
+  ActionButton,
+  MainContent,
+  TextArea
+} from './styles'
 
 const Contact = () => {
   const [favorite, setFavorite] = useState(false)
@@ -23,9 +30,27 @@ const Contact = () => {
           />
           <p>Nome de Teste da Silva</p>
         </div>
-        <EditButton>
-          <i className="fa-solid fa-pen-to-square"></i>
-        </EditButton>
+        <ActionBar>
+          {editing === false ? (
+            <>
+              <ActionButton>
+                <i className="fa-regular fa-trash-can"></i>
+              </ActionButton>
+              <ActionButton onClick={() => setEditing(!editing)}>
+                <i className="fa-solid fa-pen-to-square"></i>
+              </ActionButton>
+            </>
+          ) : (
+            <>
+              <ActionButton onClick={() => setEditing(!editing)}>
+                <i className="fa-solid fa-xmark"></i>
+              </ActionButton>
+              <ActionButton>
+                <i className="fa-solid fa-check"></i>
+              </ActionButton>
+            </>
+          )}
+        </ActionBar>
       </Header>
       <MainContent>
         <p>Email:</p>
