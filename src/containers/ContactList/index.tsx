@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Contact from '../../components/Contact'
 import { Title } from '../../styles'
-import { MainContainer } from './styles'
+import { NotFoundMessage, MainContainer } from './styles'
 import { RootReducer } from '../../store'
 
 const ContactList = () => {
@@ -34,6 +34,16 @@ const ContactList = () => {
     <MainContainer>
       <Title>Mostrando todos os contatos</Title>
       <ul>
+        {contacts.length <= 0 && (
+          <>
+            <NotFoundMessage>
+              <span>
+                <i className="fa-solid fa-user-large-slash"></i>
+              </span>
+              <p>Nenhum contato encontrado!</p>
+            </NotFoundMessage>
+          </>
+        )}
         {contacts.map((item) => (
           <li key={item.name}>
             <Contact
