@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import {
   Container,
   Header,
@@ -7,16 +7,26 @@ import {
   MainContent,
   TextArea
 } from './styles'
+import ContactClass from '../../models/Contact'
+import { useDispatch } from 'react-redux'
+import { changeFavorite } from '../../store/reducers/Contacts'
 
-const Contact = () => {
-  const [favorite, setFavorite] = useState(false)
+type Props = ContactClass
+
+const Contact = ({ id, name, email, phone, favorite }: Props) => {
   const [editing, setEditing] = useState(false)
+  const dispatch = useDispatch()
+
+  const updateFavorite = (event: ChangeEvent<HTMLInputElement>) => {
+    const favorite = event.target.checked
+    dispatch(changeFavorite({ id, favorite }))
+  }
 
   return (
     <Container>
       <Header>
         <div>
-          <label htmlFor="fav">
+          <label htmlFor={`${id}`}>
             {favorite ? (
               <i className="fa-solid fa-star"></i>
             ) : (
@@ -24,11 +34,12 @@ const Contact = () => {
             )}
           </label>
           <input
-            onChange={({ target }) => setFavorite(target.checked)}
-            id="fav"
+            checked={favorite}
+            onChange={updateFavorite}
+            id={`${id}`}
             type="checkbox"
           />
-          <p>Nome de Teste da Silva</p>
+          <p>{name}</p>
         </div>
         <ActionBar>
           {editing === false ? (
@@ -55,11 +66,11 @@ const Contact = () => {
       <MainContent>
         <p>Email:</p>
         <TextArea disabled={!editing} rows={1}>
-          testedasilva@gmail.com
+          {email}
         </TextArea>
         <p>Telefone:</p>
         <TextArea disabled={!editing} rows={1}>
-          55+ (48) 9 99999999
+          {phone}
         </TextArea>
       </MainContent>
     </Container>

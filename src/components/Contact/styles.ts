@@ -7,6 +7,7 @@ export const Container = styled.div`
   color: ${variables.fontColor};
   border-radius: 1rem;
   padding: 0.5rem;
+  margin-bottom: 1rem;
   cursor: pointer;
 
   &:hover {
