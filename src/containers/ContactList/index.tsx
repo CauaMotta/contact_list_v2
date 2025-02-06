@@ -32,7 +32,11 @@ const ContactList = () => {
 
   return (
     <MainContainer>
-      <Title>Mostrando todos os contatos</Title>
+      <Title>
+        {favorites
+          ? 'Mostrando os contatos favoritados'
+          : 'Mostrando todos os contatos'}
+      </Title>
       <ul>
         {contacts.length <= 0 && (
           <>
