@@ -46,9 +46,31 @@ const ContactSlice = createSlice({
       if (index >= 0) {
         state.items[index].favorite = action.payload.favorite
       }
+    },
+    edit: (
+      state,
+      action: PayloadAction<{ id: number; email: string; phone: string }>
+    ) => {
+      const index = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      )
+
+      if (index >= 0) {
+        if (action.payload.email.length > 0) {
+          state.items[index].email = action.payload.email
+        }
+        if (action.payload.phone.length > 0) {
+          state.items[index].phone = action.payload.phone
+        }
+      }
+    },
+    remove: (state, action: PayloadAction<number>) => {
+      state.items = [
+        ...state.items.filter((item) => item.id !== action.payload)
+      ]
     }
   }
 })
 
-export const { changeFavorite } = ContactSlice.actions
+export const { changeFavorite, edit, remove } = ContactSlice.actions
 export default ContactSlice.reducer
