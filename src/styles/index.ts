@@ -24,11 +24,21 @@ export const Container = styled.div`
   margin: 0 auto;
 `
 
+export const MainContainer = styled.main`
+  padding: 2.5rem;
+  height: 100vh;
+  overflow-y: scroll;
+`
+
 export const Title = styled.h2`
   color: ${variables.fontColor};
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 1rem;
+`
+
+export const Line = styled.hr`
+  color: ${variables.focus};
 `
 
 export default GlobalStyle

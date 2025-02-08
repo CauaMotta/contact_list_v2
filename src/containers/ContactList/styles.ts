@@ -1,12 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
 
-export const MainContainer = styled.main`
-  padding: 2.5rem;
-  height: 100vh;
-  overflow-y: scroll;
-`
-
 export const NotFoundMessage = styled.div`
   display: flex;
   flex-direction: column;

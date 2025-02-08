@@ -27,14 +27,14 @@ export const FilterTitle = styled(Title)`
   margin-bottom: 0.25rem;
 `
 
-export const Line = styled.hr`
-  color: ${variables.focus};
-`
-
-export const AddButton = styled.button`
+export const Button = styled.button`
+  display: block;
   width: 100%;
+  text-decoration: none;
+  text-align: center;
   background-color: ${variables.secondaryColor};
   color: ${variables.fontColor};
+  font-size: 0.85rem;
   font-weight: 500;
   border-radius: 0.8rem;
   border: none;

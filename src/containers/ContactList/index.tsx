@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Contact from '../../components/Contact'
-import { Title } from '../../styles'
-import { NotFoundMessage, MainContainer } from './styles'
+import { MainContainer, Title } from '../../styles'
+import { NotFoundMessage } from './styles'
 import { RootReducer } from '../../store'
 
 const ContactList = () => {
