@@ -76,6 +76,7 @@ const Form = () => {
             />
           </div>
           <S.NameInsert
+            mask=""
             onChange={({ target }) => setName(target.value)}
             type="text"
             placeholder="Digite um nome"
@@ -84,6 +85,7 @@ const Form = () => {
         <S.MainContent>
           <p>Email:</p>
           <S.DataInsert
+            mask=""
             onChange={({ target }) => setEmail(target.value)}
             type="text"
             placeholder="Digite um email"
