@@ -1,13 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import {
-  Container,
-  Header,
-  ActionBar,
-  ActionButton,
-  MainContent,
-  DataInput,
-  NameInsert
-} from './styles'
+import * as S from './styles'
 import ContactClass from '../../models/Contact'
 import { useDispatch } from 'react-redux'
 import { changeFavorite, edit, remove } from '../../store/reducers/Contacts'
@@ -41,6 +33,7 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
 
   const cancelEditing = () => {
     setEditing(false)
+    setUpdateName(name)
     setUpdateEmail(email)
     setUpdatePhone(phone)
   }
@@ -61,8 +54,8 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
   }
 
   return (
-    <Container editing={editing} delet={delet}>
-      <Header>
+    <S.Container editing={editing} delet={delet}>
+      <S.Header>
         <div>
           <label htmlFor={`${id}`}>
             {favorite ? (
@@ -77,7 +70,7 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
             id={`${id}`}
             type="checkbox"
           />
-          <NameInsert
+          <S.NameInsert
             id="nameInput"
             disabled={!editing}
             value={updateName}
@@ -85,50 +78,50 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
             placeholder="Digite um nome"
           />
         </div>
-        <ActionBar>
+        <S.ActionBar>
           {!editing && !delet && (
             <>
-              <ActionButton onClick={() => setDelet(true)}>
+              <S.ActionButton onClick={() => setDelet(true)}>
                 <span>Apagar</span>
                 <i className="fa-regular fa-trash-can"></i>
-              </ActionButton>
-              <ActionButton onClick={() => setEditing(true)}>
+              </S.ActionButton>
+              <S.ActionButton onClick={() => setEditing(true)}>
                 <span>Editar</span>
                 <i className="fa-solid fa-pen-to-square"></i>
-              </ActionButton>
+              </S.ActionButton>
             </>
           )}
           {editing && (
             <>
               <span>Confirmar edição?</span>
-              <ActionButton onClick={cancelEditing}>
+              <S.ActionButton onClick={cancelEditing}>
                 <span>Não</span>
                 <i className="fa-solid fa-xmark"></i>
-              </ActionButton>
-              <ActionButton onClick={saveEditing}>
+              </S.ActionButton>
+              <S.ActionButton onClick={saveEditing}>
                 <span>Sim</span>
                 <i className="fa-solid fa-check"></i>
-              </ActionButton>
+              </S.ActionButton>
             </>
           )}
           {delet && (
             <>
               <span>Apagar contato?</span>
-              <ActionButton onClick={() => setDelet(false)}>
+              <S.ActionButton onClick={() => setDelet(false)}>
                 <span>Não</span>
                 <i className="fa-solid fa-xmark"></i>
-              </ActionButton>
-              <ActionButton onClick={() => dispatch(remove(id))}>
+              </S.ActionButton>
+              <S.ActionButton onClick={() => dispatch(remove(id))}>
                 <span>Sim</span>
                 <i className="fa-solid fa-check"></i>
-              </ActionButton>
+              </S.ActionButton>
             </>
           )}
-        </ActionBar>
-      </Header>
-      <MainContent>
+        </S.ActionBar>
+      </S.Header>
+      <S.MainContent>
         <p>Email:</p>
-        <DataInput
+        <S.DataInput
           mask=""
           disabled={!editing}
           value={updateEmail}
@@ -138,7 +131,7 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
           }
         />
         <p>Telefone:</p>
-        <DataInput
+        <S.DataInput
           mask="(99) 99999-9999"
           disabled={!editing}
           value={updatePhone}
@@ -149,8 +142,8 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
               : 'Telefone não cadastrado!'
           }
         />
-      </MainContent>
-    </Container>
+      </S.MainContent>
+    </S.Container>
   )
 }
 

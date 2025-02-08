@@ -44,6 +44,10 @@ export const Header = styled.div`
   padding: 0 0.5rem 0.5rem 0.5rem;
   margin-bottom: 0.5rem;
 
+  div:first-of-type {
+    width: 100%;
+  }
+
   input:first-of-type {
     display: none;
   }
@@ -62,6 +66,7 @@ export const ActionBar = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-wrap: nowrap;
 
   span {
     color: ${variables.focus};
@@ -114,16 +119,17 @@ export const DataInput = styled(InputMask)`
   border: none;
   border-radius: 1rem;
   margin-bottom: 1rem;
-  padding-left: 0.5rem;
+  padding-inline: 0.5rem;
   outline: none;
 `
 
 export const NameInsert = styled.input`
+  width: 90%;
   color: ${variables.fontColor};
   font-size: 1rem;
   font-weight: 600;
   border: none;
   border-radius: 1rem;
   outline: none;
-  padding-left: 0.5rem;
+  padding-inline: 0.5rem;
 `
