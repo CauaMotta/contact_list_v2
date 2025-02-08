@@ -37,12 +37,10 @@ const Form = () => {
   }
 
   const verifyPhone = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    if (target.value.length === 15) {
-      if (target.value.includes('_')) {
-        setPhone('')
-      } else {
-        setPhone(target.value)
-      }
+    if (target.value.includes('_')) {
+      setPhone('')
+    } else {
+      setPhone(target.value)
     }
   }
 

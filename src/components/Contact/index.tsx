@@ -5,7 +5,8 @@ import {
   ActionBar,
   ActionButton,
   MainContent,
-  TextArea
+  DataInput,
+  NameInsert
 } from './styles'
 import ContactClass from '../../models/Contact'
 import { useDispatch } from 'react-redux'
@@ -19,6 +20,7 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
   const [delet, setDelet] = useState(false)
   const [updateEmail, setUpdateEmail] = useState('')
   const [updatePhone, setUpdatePhone] = useState('')
+  const [updateName, setUpdateName] = useState('')
 
   useEffect(() => {
     if (email.length > 0) {
@@ -27,7 +29,10 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
     if (phone.length > 0) {
       setUpdatePhone(phone)
     }
-  }, [email, phone])
+    if (name.length > 0) {
+      setUpdateName(name)
+    }
+  }, [email, phone, name])
 
   const updateFavorite = (event: ChangeEvent<HTMLInputElement>) => {
     const favorite = event.target.checked
@@ -41,8 +46,18 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
   }
 
   const saveEditing = () => {
-    dispatch(edit({ id, email: updateEmail, phone: updatePhone }))
-    setEditing(false)
+    if (updateName.length < 3) {
+      alert('Por favor, insira um nome válido ao seu contato!')
+    } else if (updateEmail === '' && updatePhone === '') {
+      alert('Digite ao menos uma forma de contato!')
+    } else if (updatePhone.includes('_')) {
+      alert('Número de telefone inválido.')
+    } else {
+      dispatch(
+        edit({ id, name: updateName, email: updateEmail, phone: updatePhone })
+      )
+      setEditing(false)
+    }
   }
 
   return (
@@ -62,7 +77,13 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
             id={`${id}`}
             type="checkbox"
           />
-          <p>{name}</p>
+          <NameInsert
+            id="nameInput"
+            disabled={!editing}
+            value={updateName}
+            onChange={({ target }) => setUpdateName(target.value)}
+            placeholder="Digite um nome"
+          />
         </div>
         <ActionBar>
           {!editing && !delet && (
@@ -107,18 +128,26 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
       </Header>
       <MainContent>
         <p>Email:</p>
-        <TextArea
+        <DataInput
+          mask=""
           disabled={!editing}
-          rows={1}
           value={updateEmail}
           onChange={({ target }) => setUpdateEmail(target.value)}
+          placeholder={
+            editing ? 'Digite um email válido' : 'Email não cadastrado!'
+          }
         />
         <p>Telefone:</p>
-        <TextArea
+        <DataInput
+          mask="(99) 99999-9999"
           disabled={!editing}
-          rows={1}
           value={updatePhone}
           onChange={({ target }) => setUpdatePhone(target.value)}
+          placeholder={
+            editing
+              ? 'Digite um número de telefone'
+              : 'Telefone não cadastrado!'
+          }
         />
       </MainContent>
     </Container>

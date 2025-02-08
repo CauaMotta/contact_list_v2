@@ -49,19 +49,21 @@ const ContactSlice = createSlice({
     },
     edit: (
       state,
-      action: PayloadAction<{ id: number; email: string; phone: string }>
+      action: PayloadAction<{
+        id: number
+        name: string
+        email: string
+        phone: string
+      }>
     ) => {
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
       )
 
       if (index >= 0) {
-        if (action.payload.email.length > 0) {
-          state.items[index].email = action.payload.email
-        }
-        if (action.payload.phone.length > 0) {
-          state.items[index].phone = action.payload.phone
-        }
+        state.items[index].name = action.payload.name
+        state.items[index].email = action.payload.email
+        state.items[index].phone = action.payload.phone
       }
     },
     remove: (state, action: PayloadAction<number>) => {

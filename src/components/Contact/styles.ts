@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
+import InputMask from 'react-input-mask'
 
 type Props = {
   editing: boolean
@@ -18,7 +19,10 @@ export const Container = styled.div<Props>`
   button {
     display: ${({ editing, delet }) => (editing || delet ? 'block' : 'none')};
   }
-  textarea {
+  input#nameInput {
+    margin-left: ${({ editing }) => (editing ? '0.5rem' : '0')};
+  }
+  input {
     background-color: ${({ editing }) =>
       editing ? variables.background : 'transparent'};
   }
@@ -40,7 +44,7 @@ export const Header = styled.div`
   padding: 0 0.5rem 0.5rem 0.5rem;
   margin-bottom: 0.5rem;
 
-  input {
+  input:first-of-type {
     display: none;
   }
 
@@ -51,14 +55,6 @@ export const Header = styled.div`
     &:hover {
       color: ${variables.favHover};
     }
-  }
-
-  p {
-    display: inline;
-
-    color: ${variables.fontColor};
-    font-weight: 600;
-    margin-left: 0.5rem;
   }
 `
 
@@ -110,7 +106,7 @@ export const MainContent = styled.div`
   }
 `
 
-export const TextArea = styled.textarea`
+export const DataInput = styled(InputMask)`
   width: 100%;
   font-size: 0.8rem;
   line-height: 1.5rem;
@@ -119,6 +115,15 @@ export const TextArea = styled.textarea`
   border-radius: 1rem;
   margin-bottom: 1rem;
   padding-left: 0.5rem;
-  resize: none;
   outline: none;
+`
+
+export const NameInsert = styled.input`
+  color: ${variables.fontColor};
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  padding-left: 0.5rem;
 `
