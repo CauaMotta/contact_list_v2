@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${variables.background}
+    background-color: ${({ theme }) => theme.colors.background}
   }
 `
 export const Container = styled.div`
@@ -31,14 +31,37 @@ export const MainContainer = styled.main`
 `
 
 export const Title = styled.h2`
-  color: ${variables.fontColor};
+  color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 1rem;
 `
 
 export const Line = styled.hr`
-  color: ${variables.focus};
+  height: 2px;
+  background-color: ${({ theme }) => theme.colors.focus};
+  border: none;
+`
+
+export const Button = styled.button`
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.fontColor};
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0.8rem;
+  border: none;
+  padding: 0.25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.focus};
+    color: ${({ theme }) => theme.colors.secondaryColor};
+  }
 `
 
 export default GlobalStyle

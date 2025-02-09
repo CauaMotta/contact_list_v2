@@ -9,8 +9,8 @@ type Props = {
 
 export const Container = styled.div<Props>`
   width: 100%;
-  background-color: ${variables.secondaryColor};
-  color: ${variables.fontColor};
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.fontColor};
   border-radius: 1rem;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -24,7 +24,7 @@ export const Container = styled.div<Props>`
   }
   input {
     background-color: ${({ editing }) =>
-      editing ? variables.background : 'transparent'};
+      editing ? ({ theme }) => theme.colors.background : 'transparent'};
   }
 
   &:hover {
@@ -40,7 +40,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid ${variables.background};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.background};
   padding: 0 0.5rem 0.5rem 0.5rem;
   margin-bottom: 0.5rem;
 
@@ -69,12 +69,12 @@ export const ActionBar = styled.div`
   text-wrap: nowrap;
 
   span {
-    color: ${variables.focus};
+    color: ${({ theme }) => theme.colors.focus};
   }
 `
 
 export const ActionButton = styled.button`
-  color: ${variables.fontColor};
+  color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1rem;
   background-color: transparent;
   border: none;
@@ -89,7 +89,7 @@ export const ActionButton = styled.button`
   }
 
   &:hover {
-    color: ${variables.focus};
+    color: ${({ theme }) => theme.colors.focus};
     span {
       transition:
         transform 0.2s ease-out,
@@ -115,7 +115,7 @@ export const DataInput = styled(InputMask)`
   width: 100%;
   font-size: 0.8rem;
   line-height: 1.5rem;
-  color: ${variables.fontColor};
+  color: ${({ theme }) => theme.colors.fontColor};
   border: none;
   border-radius: 1rem;
   margin-bottom: 1rem;
@@ -125,7 +125,7 @@ export const DataInput = styled(InputMask)`
 
 export const NameInsert = styled.input`
   width: 90%;
-  color: ${variables.fontColor};
+  color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1rem;
   font-weight: 600;
   border: none;

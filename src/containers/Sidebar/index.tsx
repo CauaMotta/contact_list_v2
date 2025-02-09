@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import FilterCard from '../../components/FilterCard'
-import { Title, Line } from '../../styles'
-import { Container, FilterTitle, SearchContact, Button } from './styles'
+import { Title, Line, Button } from '../../styles'
+import { Container, FilterTitle, SearchContact } from './styles'
 import { changeTerm } from '../../store/reducers/Filter'
+import ChangeThemeButton from '../../components/ChangeThemeButton'
 
 type Props = {
   showFilters?: boolean
@@ -42,6 +43,7 @@ const Sidebar = ({ showFilters }: Props) => {
           </Button>
         </>
       )}
+      <ChangeThemeButton />
     </Container>
   )
 }

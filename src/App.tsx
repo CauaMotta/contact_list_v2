@@ -1,10 +1,11 @@
-import { Provider } from 'react-redux'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle, { Container } from './styles'
-import store from './store'
 import Home from './pages/Home'
 import NewContact from './pages/NewContact'
+import { useSelector } from 'react-redux'
+import { RootReducer } from './store'
 
 const routes = createBrowserRouter([
   {
@@ -18,13 +19,15 @@ const routes = createBrowserRouter([
 ])
 
 function App() {
+  const { theme } = useSelector((state: RootReducer) => state.theme)
+
   return (
-    <Provider store={store}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
         <RouterProvider router={routes} />
       </Container>
-    </Provider>
+    </ThemeProvider>
   )
 }
 

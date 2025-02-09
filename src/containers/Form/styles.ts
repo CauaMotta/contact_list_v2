@@ -5,8 +5,8 @@ import variables from '../../styles/variables'
 export const FormContainer = styled.form`
   margin-top: 2.5rem;
   width: 100%;
-  background-color: ${variables.secondaryColor};
-  color: ${variables.fontColor};
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.fontColor};
   border-radius: 1rem;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -21,7 +21,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
-  border-bottom: 2px solid ${variables.background};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.background};
   padding: 0 0.5rem 0.5rem 0.5rem;
   margin-bottom: 0.5rem;
 
@@ -65,8 +65,8 @@ export const DataInsert = styled(InputMask)`
   width: 100%;
   font-size: 0.85rem;
   line-height: 1.5rem;
-  background-color: ${variables.background};
-  color: ${variables.fontColor};
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.fontColor};
   border: none;
   border-radius: 1rem;
   outline: none;
@@ -88,8 +88,8 @@ export const SaveContainer = styled.div`
 `
 
 export const SaveButton = styled.button`
-  background-color: ${variables.focus};
-  color: ${variables.secondaryColor};
+  background-color: ${({ theme }) => theme.colors.focus};
+  color: ${({ theme }) => theme.colors.secondaryColor};
   font-weight: 500;
   font-size: 1rem;
   padding: 0.25rem 2rem;
@@ -98,11 +98,11 @@ export const SaveButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${variables.secondaryColor};
-    color: ${variables.focus};
+    background-color: ${({ theme }) => theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.colors.focus};
   }
 `
 
 export const ErrorMessage = styled.span`
-  color: ${variables.focus};
+  color: ${({ theme }) => theme.colors.focus};
 `
