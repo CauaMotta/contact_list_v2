@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import InputMask from 'react-input-mask'
-import variables from '../../styles/variables'
 
 export const FormContainer = styled.form`
   margin-top: 2.5rem;
@@ -31,10 +30,10 @@ export const Header = styled.div`
 
   label {
     cursor: pointer;
-    color: ${variables.favColor};
+    color: ${({ theme }) => theme.colors.favColor};
 
     &:hover {
-      color: ${variables.favHover};
+      color: ${({ theme }) => theme.colors.favHover};
     }
   }
 `
@@ -45,10 +44,10 @@ export const FavoriteButton = styled.label`
   justify-content: center;
   gap: 0.25rem;
   cursor: pointer;
-  color: ${variables.favColor};
+  color: ${({ theme }) => theme.colors.favColor};
 
   &:hover {
-    color: ${variables.favHover};
+    color: ${({ theme }) => theme.colors.favHover};
   }
 `
 

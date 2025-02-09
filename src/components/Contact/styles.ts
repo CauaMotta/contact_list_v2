@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
 import InputMask from 'react-input-mask'
 
 type Props = {
@@ -54,10 +53,10 @@ export const Header = styled.div`
 
   label {
     cursor: pointer;
-    color: ${variables.favColor};
+    color: ${({ theme }) => theme.colors.favColor};
 
     &:hover {
-      color: ${variables.favHover};
+      color: ${({ theme }) => theme.colors.favHover};
     }
   }
 `

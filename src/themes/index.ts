@@ -3,15 +3,21 @@ export const darkTheme = {
     background: '#222831',
     fontColor: '#EEEEEE',
     secondaryColor: '#31363F',
-    focus: '#76ABAE'
+    focus: '#76ABAE',
+
+    favColor: '#FBEEAC',
+    favHover: '#F4D160'
   }
 }
 
 export const lightTheme = {
   colors: {
-    background: '#F47C7C',
-    fontColor: '#FAD4D4',
-    secondaryColor: '#EF9F9F',
-    focus: '#FFF2F2'
+    background: '#EEEEEE',
+    fontColor: '#313131',
+    secondaryColor: '#DEDEDE',
+    focus: '#C10000',
+
+    favColor: '#F4A261',
+    favHover: '#E9C46A'
   }
 }
