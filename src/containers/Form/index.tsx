@@ -23,6 +23,12 @@ const Form = () => {
     } else if (email.length == 0 && phone.length == 0) {
       setErrorMessage('Nenhuma forma de contato preenchida!')
       setError(true)
+    } else if (
+      (email.length > 0 && !email.includes('@')) ||
+      email.includes(' ')
+    ) {
+      setErrorMessage('Insira um email válido!')
+      setError(true)
     } else {
       dispatch(
         register({
@@ -84,7 +90,8 @@ const Form = () => {
           <p>Email:</p>
           <S.DataInsert
             mask=""
-            onChange={({ target }) => setEmail(target.value)}
+            value={email}
+            onChange={({ target }) => setEmail(target.value.trimEnd())}
             type="text"
             placeholder="Digite um email"
           />
