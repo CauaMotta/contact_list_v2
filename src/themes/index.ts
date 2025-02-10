@@ -17,7 +17,7 @@ export const lightTheme = {
     secondaryColor: '#DEDEDE',
     focus: '#C10000',
 
-    favColor: '#F4A261',
-    favHover: '#E9C46A'
+    favColor: '#EFB036',
+    favHover: '#FBA518'
   }
 }

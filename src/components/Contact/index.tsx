@@ -45,6 +45,8 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
       alert('Digite ao menos uma forma de contato!')
     } else if (updatePhone.includes('_')) {
       alert('Número de telefone inválido.')
+    } else if (!updateEmail.includes('@') || updateEmail.includes(' ')) {
+      alert('Insira um email válido.')
     } else {
       dispatch(
         edit({ id, name: updateName, email: updateEmail, phone: updatePhone })
@@ -125,7 +127,7 @@ const Contact = ({ id, name, email, phone, favorite }: Props) => {
           mask=""
           disabled={!editing}
           value={updateEmail}
-          onChange={({ target }) => setUpdateEmail(target.value)}
+          onChange={({ target }) => setUpdateEmail(target.value.trimEnd())}
           placeholder={
             editing ? 'Digite um email válido' : 'Email não cadastrado!'
           }
