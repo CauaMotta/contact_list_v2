@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# 🚀 Contact List v2 – Agenda de Contatos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido para o curso da **EBAC** e consiste em uma agenda de contatos com design autoral, pensado para oferecer uma experiência agradável e moderna.  
+A aplicação é construída em **React** com **TypeScript**, utilizando **Styled Components** para aplicar temas de forma dinâmica.  
+O gerenciamento de estado global é feito com **Redux**, garantindo sincronização eficiente dos dados.  
+A navegação entre páginas é feita com **React Router Dom**, permitindo um fluxo intuitivo.  
+Além disso, o projeto conta com máscaras para campos de entrada usando **React Input Mask**, melhorando a usabilidade dos formulários.
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡ [Vite](https://vitejs.dev/) – Build tool para otimizar performance
+- 💙 [TypeScript](https://www.typescriptlang.org/) – Superset do JavaScript com tipagem estática
+- ⚛️ [React](https://reactjs.org/) – Biblioteca para construção da UI
+- 💅 [Styled Components](https://styled-components.com/) – Estilização CSS-in-JS e suporte a temas
+- 🗂️ [Redux](https://redux.js.org/) – Gerenciamento global de estado
+- 🧭 [React Router Dom](https://reactrouter.com/) – Navegação entre páginas
+- 🎭 [React Input Mask](https://github.com/sanniassin/react-input-mask) – Máscaras para campos de entrada
 
-## Expanding the ESLint configuration
+## 📦 Instalação e Execução
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Para rodar o projeto localmente, siga os passos abaixo:
 
-- Configure the top-level `parserOptions` property like this:
+```sh
+# Clone este repositório
+git clone https://github.com/CauaMotta/contact_list_v2
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+# Acesse a pasta do projeto
+cd contact_list_v2
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+# Instale as dependências
+npm install
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# Execute o projeto
+npm run dev
